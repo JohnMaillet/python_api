@@ -44,4 +44,4 @@ def getLocations():
 # api.add_resource(Locations, '/locations')  # and '/locations' is our entry point for Locations
 
 if __name__ == '__main__':
-    app.run()  # run our Flask app
+    app.run(ssl_context='adhoc')  # run our Flask app
