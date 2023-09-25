@@ -3,14 +3,13 @@
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 import json
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_restful import Resource, Api, reqparse
 import pandas as pd
 import ast
 
 app = Flask(__name__)
 api = Api(app)
-
 
 def buildMockResponse(type):
     try:
@@ -24,6 +23,9 @@ def buildMockResponse(type):
         code = 404
         return parsed_json, code
 
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 @app.route("/user")
 # methods go here
